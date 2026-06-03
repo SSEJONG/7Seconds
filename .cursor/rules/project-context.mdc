@@ -1,0 +1,26 @@
+---
+description: 7Seconds MVP — Godot 프로젝트 맥락과 docs 우선
+alwaysApply: true
+---
+
+# 프로젝트 맥락
+
+- **시작점**: 작업 전 루트 `README.md`와 관련 `docs/*.md`를 확인한다.
+- **게임**: 3D 액션 덱빌딩, MVP는 **적 1명과의 전투 1판(여러 턴, 승/패까지)**. `PLAN_PHASE`는 시간 정지, `ACTION_PHASE`만 실시간(기본 7초). **턴 1회만**이거나 **로그라이크 런**은 MVP 아님.
+- **엔진**: Godot **4.6.3**, GDScript 우선.
+- **스펙 충돌 시**: `docs/`가 정본. 임의로 수치·흐름을 바꾸지 않는다.
+
+## 폴더 역할 (요약)
+
+| 경로 | 역할 |
+|------|------|
+| `scenes/` | 씬(.tscn) — 노드 배치·애니·충돌 |
+| `scripts/` | 로직(.gd) — 전투·카드·플레이어·적 |
+| `resources/` | CardDefinition 등 `.tres` |
+| `data/mvp/` | JSON 원본 (`docs/06`) |
+| `assets/` | 모델·텍스처·사운드 |
+
+## 구현 시
+
+- `docs/08_implementation_checklist.md` Step 순서를 따른다.
+- 한 번에 큰 기능보다 **체크리스트 한 Step** 단위 PR/커밋 권장.

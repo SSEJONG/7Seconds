@@ -1,0 +1,13 @@
+---
+description: 플레이어 손맛·타격감 튜닝 — 기획자 조정 경로
+alwaysApply: false
+globs: "**/player*.gd,**/player_feel*.gd,**/default_player_feel.tres"
+---
+
+# 손맛 튜닝
+
+- 수치 변경: `resources/combat/default_player_feel.tres` (코드 수정 최소화)
+- 기획 가이드: `docs/09_player_feel_tuning.md`
+- 전투 규칙(7초·HP): `scripts/autoload/game_constants.gd`
+
+코드 작업 후 기획자에게 **어떤 항목을 올리/내리면 어떤 느낌인지** `docs/09` 표 형식으로 설명한다.

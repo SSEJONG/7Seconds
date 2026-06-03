@@ -1,0 +1,10 @@
+---
+description: 세션 시작 시 루트 README.md 우선 참조
+alwaysApply: true
+---
+
+# README 우선
+
+새 기능·버그·구조 질문 시 **먼저** 루트 `README.md`를 읽고, 세부 스펙은 `docs/` 해당 번호 문서를 연다.
+
+구현 완료 여부는 `docs/08_implementation_checklist.md` 체크리스트와 대조한다.

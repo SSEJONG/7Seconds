@@ -1,0 +1,29 @@
+# Godot 4
+.godot/
+*.translation
+export.cfg
+export_presets.cfg
+
+# Imported assets (keep source in assets/)
+*.import
+
+# Mono / C# (unused in MVP GDScript path)
+.mono/
+data_*/
+mono_crash.*
+
+# OS / IDE
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Builds
+build/
+dist/
+*.apk
+*.exe
+*.app
+*.zip
