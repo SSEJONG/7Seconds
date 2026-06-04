@@ -51,6 +51,8 @@
 
 **손맛 조정**: `docs/09_player_feel_tuning.md` · `resources/combat/default_player_feel.tres`
 
+**이어서 개발(에이전트)**: [`docs/12_session_handoff.md`](docs/12_session_handoff.md)
+
 ## 문서 인덱스 (`docs/`)
 
 | 파일 | 용도 |
@@ -66,6 +68,8 @@
 | `07_mvp_content_list.md` | 카드·덱·적 스펙 |
 | `08_implementation_checklist.md` | 구현 순서·완료 조건 |
 | `10_godot_463_gdscript.md` | **Godot 4.6.3 GDScript 필수 규칙** |
+| `11_animation_next.md` | 플레이어·적 애니 다음 단계 |
+| `12_session_handoff.md` | **에이전트/이어하기용** 현재 진행 스냅샷 |
 
 ## 권장 구현 순서
 
