@@ -17,12 +17,12 @@ extends Resource
 @export_range(0.0, 0.6, 0.01) var dodge_recovery: float = 0.2
 @export_range(0.5, 4.0, 0.1) var dodge_distance_multiplier: float = 1.0
 
-@export_group("카메라 (손맛)")
-@export_range(0.0005, 0.02, 0.0005) var mouse_sensitivity: float = 0.003
-@export_range(10.0, 90.0, 1.0) var camera_pitch_min_deg: float = -50.0
-@export_range(10.0, 89.0, 1.0) var camera_pitch_max_deg: float = 60.0
-@export_range(2.0, 20.0, 0.5) var camera_height: float = 5.5
-@export_range(4.0, 24.0, 0.5) var camera_distance: float = 9.0
+@export_group("1인칭 카메라")
+@export_range(0.0005, 0.02, 0.0005) var mouse_sensitivity: float = 0.0022
+@export_range(-89.0, 0.0, 1.0) var camera_pitch_min_deg: float = -89.0
+@export_range(0.0, 89.0, 1.0) var camera_pitch_max_deg: float = 89.0
+@export_range(1.2, 2.2, 0.01) var eye_height_m: float = 1.62
+@export_range(60.0, 110.0, 1.0) var camera_fov_deg: float = 75.0
 
 @export_group("타격감 (연출)")
 @export_range(0.0, 0.25, 0.005) var hit_stop_duration: float = 0.06

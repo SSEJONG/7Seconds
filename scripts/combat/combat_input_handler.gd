@@ -23,7 +23,28 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("debug_damage_player"):
 		_combat.apply_debug_damage_to_player(25)
 	elif event.is_action_pressed("toggle_mouse_capture"):
+		if _combat.state != CombatState.Id.ACTION_PHASE:
+			return
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	elif _combat.state == CombatState.Id.ACTION_PHASE:
+		_handle_action_card_input(event)
+
+
+func _handle_action_card_input(event: InputEvent) -> void:
+	if event.is_action_pressed("use_card"):
+		_combat.try_use_selected_card()
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventMouseButton:
+		var mb := event as InputEventMouseButton
+		if not mb.pressed:
+			return
+		if mb.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_combat.cycle_card_selection(-1)
+			get_viewport().set_input_as_handled()
+		elif mb.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_combat.cycle_card_selection(1)
+			get_viewport().set_input_as_handled()

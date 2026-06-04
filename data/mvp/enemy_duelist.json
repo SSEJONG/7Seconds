@@ -1,0 +1,83 @@
+{
+  "id": "duelist",
+  "name": "검투병",
+  "maxHP": 120,
+  "moveSpeed": 4.8,
+  "staggerThreshold": 30,
+  "guardDamageMultiplier": 0.3,
+  "parryStagger": 15,
+  "intentSummary": "접근 → 빠른 공격 → 횡이동 → 돌진 공격 → 강공격 → 방어",
+  "extensionIntentSummary": "재접근 → 빠른 공격×2 → 후퇴 → 방어",
+  "actions": {
+	"APPROACH": {
+	  "displayName": "접근",
+	  "duration": 1.0,
+	  "damage": 0,
+	  "range": 0,
+	  "move": true
+	},
+	"LIGHT_ATTACK": {
+	  "displayName": "빠른 공격",
+	  "startup": 0.25,
+	  "active": 0.2,
+	  "recovery": 0.35,
+	  "damage": 8,
+	  "range": 2.4,
+	  "isParryable": true
+	},
+	"SIDE_STEP": {
+	  "displayName": "횡이동",
+	  "duration": 0.5,
+	  "damage": 0,
+	  "range": 0,
+	  "strafe": true
+	},
+	"DASH_ATTACK": {
+	  "displayName": "돌진 공격",
+	  "startup": 0.15,
+	  "active": 0.25,
+	  "recovery": 0.45,
+	  "damage": 12,
+	  "range": 2.8,
+	  "dashSpeed": 10.0,
+	  "isParryable": true
+	},
+	"HEAVY_ATTACK": {
+	  "displayName": "강공격",
+	  "startup": 0.45,
+	  "active": 0.25,
+	  "recovery": 0.55,
+	  "damage": 18,
+	  "range": 2.6,
+	  "isParryable": true
+	},
+	"GUARD": {
+	  "displayName": "방어 자세",
+	  "duration": 1.2,
+	  "damage": 0,
+	  "range": 0
+	},
+	"RETREAT": {
+	  "displayName": "후퇴",
+	  "duration": 0.6,
+	  "damage": 0,
+	  "range": 0,
+	  "retreat": true
+	}
+  },
+  "coreSequence": [
+	{ "time": 0.0, "action": "APPROACH" },
+	{ "time": 1.2, "action": "LIGHT_ATTACK" },
+	{ "time": 2.4, "action": "SIDE_STEP" },
+	{ "time": 3.5, "action": "DASH_ATTACK" },
+	{ "time": 5.2, "action": "HEAVY_ATTACK" },
+	{ "time": 6.8, "action": "GUARD" }
+  ],
+  "extensionSequence": [
+	{ "time": 7.3, "action": "APPROACH" },
+	{ "time": 8.3, "action": "LIGHT_ATTACK" },
+	{ "time": 9.0, "action": "LIGHT_ATTACK" },
+	{ "time": 10.2, "action": "RETREAT" },
+	{ "time": 11.0, "action": "GUARD" }
+  ]
+}

@@ -1,30 +1,42 @@
 ---
-description: Godot 4.6 GDScript·씬 MVP 코딩 규칙
+description: Godot 4.6.3 GDScript·씬 MVP 코딩 (문법 필수)
 globs: "**/*.{gd,tscn,tres}"
-alwaysApply: false
+alwaysApply: true
 ---
 
-# Godot MVP 코딩
+# Godot 4.6.3 MVP 코딩 (필수)
+
+- **버전**: 이 저장소는 **Godot 4.6.3 전용**. 코드·리뷰·에이전트 출력은 반드시 **4.6.3 GDScript**로 작성한다.
+- **정본 문서**: `docs/10_godot_463_gdscript.md` — API 금지·허용 목록, 파서 오류 표. 작업 전·후 확인.
+- Godot 3.x·인터넷 예제를 붙일 때는 **4.6.3에서 컴파일되는지** 먼저 검증한다.
+
+## 4.6.3에서 자주 틀리는 것 (요약)
+
+- `Engine.get_real_delta_time()` → **없음** (`Time.get_ticks_usec()` 또는 `delta`)
+- `Vector3.lerp(a,b,t)` → `a.lerp(b,t)`
+- `JSON.parse()` → `JSON.parse_string()`
+- 노드 `_ready()` 순서: 늦게 뜨는 노드는 JSON/데이터 **지연 로드**
+
+## 코딩 규칙
 
 - **타입 힌트** 사용: `func draw_cards(count: int) -> Array[CardInstance]:`
-- **전투 상태**는 enum + 단일 `CombatStateMachine` (`scripts/combat/`), 문자열 하드코딩 난립 금지.
-- **카드/적 수치**는 `resources/` 또는 `data/mvp/` — 매직 넘버를 플레이어 스크립트에 박지 않는다.
-- **입력**: 액션 슬롯 1~5는 Input Map 이름 `action_slot_1` … 로 통일 (추가 시 `project.godot`에 기록).
-- **3D MVP**: CharacterBody3D + 간단 Area3D 히트박스; 완성 애니 없으면 타이머로 startup/active/recovery 구간 처리 (`docs/06`).
+- **전투 상태**는 `CombatState` enum (`scripts/combat/`), 문자열 난립 금지.
+- **카드/적 수치**는 `resources/` 또는 `data/mvp/`.
+- **입력**: 액션 카드는 `use_card`(좌클릭)·휠; 새 Input Map은 `project.godot`에 기록.
+- **3D MVP**: CharacterBody3D; 애니 없으면 startup/active/recovery 타이머 (`docs/06`).
 
 ## 네이밍
 
 | 영역 | 접두/폴더 |
 |------|-----------|
-| 전투 FSM | `combat_state_machine.gd` |
+| 전투 FSM | `scripts/combat/combat_controller.gd` |
 | 카드 실행 | `scripts/cards/card_executor.gd` |
-| 적 타임라인 | `scripts/enemy/enemy_sequence_runner.gd` |
+| 적 | `scripts/enemy/enemy_duelist.gd` |
 
 ## 씬 규칙
 
 - 전투 루트: `scenes/combat/combat_arena.tscn`
-- 진입: `scenes/main/main.tscn` → 전투 씬 인스턴스
-- UI는 `scenes/ui/`, 로직은 `scripts/ui/`에 분리
+- UI: `scenes/ui/`, 로직: `scripts/ui/`
 
 ## 변경 설명
 

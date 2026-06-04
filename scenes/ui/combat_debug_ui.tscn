@@ -16,8 +16,8 @@ script = ExtResource("1")
 layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
-offset_right = 420.0
-offset_bottom = 280.0
+offset_right = 520.0
+offset_bottom = 420.0
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
 layout_mode = 2
@@ -48,11 +48,47 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "적 HP: —"
 
-[node name="HandLabel" type="Label" parent="Panel/VBox"]
+[node name="EnemyIntentLabel" type="Label" parent="Panel/VBox"]
 unique_name_in_owner = true
 layout_mode = 2
 autowrap_mode = 3
-text = "손패: —"
+text = "적 예고: —"
+
+[node name="EnemyActionLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "적 행동: —"
+
+[node name="PileLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "드로우 pile: — · 버림 pile: —"
+
+[node name="RerollLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "교체 남음: —"
+
+[node name="SelectedCardLabel" type="Label" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+text = "선택: —"
+
+[node name="HandScroll" type="ScrollContainer" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+
+[node name="HandContainer" type="HBoxContainer" parent="Panel/VBox/HandScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="ConfirmRerollButton" type="Button" parent="Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "교체 확정 (선택한 카드)"
 
 [node name="MessageLabel" type="Label" parent="Panel/VBox"]
 unique_name_in_owner = true
@@ -83,12 +119,13 @@ layout_mode = 2
 
 [node name="DamageEnemyButton" type="Button" parent="Panel/VBox/HBox2"]
 layout_mode = 2
-text = "적 -30 (F9)"
+text = "적 -30 ([)"
 
 [node name="DamagePlayerButton" type="Button" parent="Panel/VBox/HBox2"]
 layout_mode = 2
-text = "나 -25 (F10)"
+text = "나 -25 (])"
 
+[connection signal="pressed" from="Panel/VBox/ConfirmRerollButton" to="." method="_on_confirm_reroll_pressed"]
 [connection signal="pressed" from="Panel/VBox/HBox/StartActionButton" to="." method="_on_start_action_pressed"]
 [connection signal="pressed" from="Panel/VBox/HBox/RestartButton" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Panel/VBox/HBox2/DamageEnemyButton" to="." method="_on_damage_enemy_pressed"]

@@ -77,6 +77,8 @@ MVP는 로그라이크 **전체 런**이 아니라, **적 1명과의 전투 한 
 | `07_mvp_content_list.md` | MVP 카드 목록, 시작 덱, 적 스펙 |
 | `08_implementation_checklist.md` | 구현 순서와 완료 조건 |
 | `09_player_feel_tuning.md` | 플레이어 이동·회피·타격감 수치 조정 (기획자) |
+| `10_godot_463_gdscript.md` | **Godot 4.6.3 문법·API 필수** (에이전트·개발) |
+| `11_animation_next.md` | MVP 1차 이후 애니메이션 작업 가이드 |
 
 ## 핵심 한 줄 정의
 

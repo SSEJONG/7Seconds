@@ -20,7 +20,8 @@
 ## 엔진
 
 - **Godot 4.6.3** (프로젝트 루트의 `project.godot`로 열기)
-- 언어: **GDScript** (MVP 기본)
+- 언어: **GDScript 2.0** — **4.6.3 문법·API만** 사용 (Godot 3·다른 버전 예제 무단 복사 금지)
+- 필수 참고: [`docs/10_godot_463_gdscript.md`](docs/10_godot_463_gdscript.md)
 
 ## MVP 범위 (포함 / 제외)
 
@@ -37,10 +38,16 @@
 | 완료 | 내용 |
 |:----:|------|
 | ✅ | Step 1: 전투 상태 머신, 계획 시 `time_scale=0`, 액션 7초, 턴 반복, 승/패 |
-| ✅ | Step 2 (1차): 3D 이동·회피·카메라, `default_player_feel.tres` 튜닝 |
-| ⬜ | 카드/덱/슬롯, 적 시퀀스, 카드 공격 등 (체크리스트 Step 3~) |
+| ✅ | Step 2 (1차): 1인칭 이동·회피·시점, `default_player_feel.tres` 튜닝 |
+| ✅ | Step 3: 카드 정의(JSON)·덱 12장·드로우/버림 pile·턴 5장·교체 1회 |
+| ✅ | Step 4~5(1차): 손패 휠·좌클릭 카드 사용·기본 카드 효과 |
+| ✅ | Step 6: 검투병 코어 시퀀스·공격·방어·패링·경직·적 예고 UI |
+| ✅ | Step 7~9: 액션 시간 연장·턴 정산·디버그 UI — **MVP 1차 코드 완료** |
+| 🟡 | 적 **Enemy.glb** 애니 연동(1차) — 플레이어 애니·타이밍 미세조정 남음 |
 
 **실행**: Godot 4.6.3 → F5 → `scenes/combat/combat_arena.tscn`
+
+**맵에서 적 모델 확인**: `scenes/combat/combat_arena.tscn` 더블클릭(에디터 3D 뷰) 또는 F5 후 계획 단계에서 **B** (맵 프리뷰 카메라)
 
 **손맛 조정**: `docs/09_player_feel_tuning.md` · `resources/combat/default_player_feel.tres`
 
@@ -58,6 +65,7 @@
 | `06_data_schema.md` | JSON/리소스 데이터 스키마 |
 | `07_mvp_content_list.md` | 카드·덱·적 스펙 |
 | `08_implementation_checklist.md` | 구현 순서·완료 조건 |
+| `10_godot_463_gdscript.md` | **Godot 4.6.3 GDScript 필수 규칙** |
 
 ## 권장 구현 순서
 
@@ -141,4 +149,4 @@
 2. (씬 추가 후) `scenes/main/` 진입 씬을 Main Scene으로 설정
 3. F5로 실행
 
-현재는 **폴더·프로젝트 골격만** 준비된 상태입니다. `scenes/main/main.tscn` 등은 Step 1 구현 시 생성합니다.
+진입 씬은 `scenes/combat/combat_arena.tscn`입니다. `scenes/main/main.tscn`은 추후 추가 가능합니다.

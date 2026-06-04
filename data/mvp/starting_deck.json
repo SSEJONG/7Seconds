@@ -1,0 +1,12 @@
+{
+  "entries": [
+    { "id": "quick_slash", "count": 3 },
+    { "id": "thrust", "count": 2 },
+    { "id": "heavy_strike", "count": 1 },
+    { "id": "parry", "count": 2 },
+    { "id": "dash", "count": 1 },
+    { "id": "tactical_reload", "count": 2 },
+    { "id": "combo_slash", "count": 1 },
+    { "id": "gain_time", "count": 1 }
+  ]
+}

@@ -7,7 +7,7 @@ alwaysApply: true
 
 - **시작점**: 작업 전 루트 `README.md`와 관련 `docs/*.md`를 확인한다.
 - **게임**: 3D 액션 덱빌딩, MVP는 **적 1명과의 전투 1판(여러 턴, 승/패까지)**. `PLAN_PHASE`는 시간 정지, `ACTION_PHASE`만 실시간(기본 7초). **턴 1회만**이거나 **로그라이크 런**은 MVP 아님.
-- **엔진**: Godot **4.6.3**, GDScript 우선.
+- **엔진**: Godot **4.6.3**만 사용. GDScript는 **4.6.3 문법·API**만 쓴다 (Godot 3·타 4.x 예제 무단 복사 금지). 상세: `docs/10_godot_463_gdscript.md`, `.cursor/rules/godot-gdscript-mvp.mdc`.
 - **스펙 충돌 시**: `docs/`가 정본. 임의로 수치·흐름을 바꾸지 않는다.
 
 ## 폴더 역할 (요약)
